@@ -1,10 +1,12 @@
 package estrutura;
 
-public class NodoMaximo extends Nodo{
+public class NodoMaximo extends Nodo {
 
 	@Override
 	public void putUtilityPoint(Long utilityPoint) {
-		this.min = utilityPoint;
+		if (utilityPoint > this.min) {
+			this.min = utilityPoint;
+		}
 	}
 
 }
