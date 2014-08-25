@@ -1,9 +1,2 @@
-/logs
-/project/project
-/project/target
-/.target
-/target
-/tmp
-/dist
-/.cache
 /bin
+/target
