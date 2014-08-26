@@ -8,8 +8,9 @@ public class UtilityTest {
 	static Tabuleiro board;
 
 	public static void main(String[] args) {
-		initBoard();
-		System.out.println("Utilidade total com vizinhos:    " + UtilidadeVizinhos.calculateUtilityVizinhos(board));
+		initBoardNaMao();
+		board.printBoard();
+		// System.out.println("Utilidade total com vizinhos:    " + UtilidadeVizinhos.calculateUtilityVizinhos(board));
 		System.out.println("Utilidade total com combinações: " + UtilidadeCombinacoes.calculateUtilityCombinacoes(board));
 	}
 
@@ -28,8 +29,25 @@ public class UtilityTest {
 				}
 			}
 		}
+	}
 
-		board.printBoard();
+	private static void initBoardNaMao() {
+		board = new Tabuleiro();
+
+		for (int i = 0; i < board.HEIGHT; i++) {
+			for (int j = 0; j < board.WIDTH; j++) {
+				board.setCasaValue(i, j, Token.BLANK);
+			}
+		}
+
+		board.setCasaValue(1, 1, Token.BLUE);
+		board.setCasaValue(0, 0, Token.GREEN);
+		board.setCasaValue(1, 0, Token.BLUE);
+		board.setCasaValue(2, 2, Token.BLUE);
+		board.setCasaValue(3, 3, Token.BLUE);
+		board.setCasaValue(2, 0, Token.GREEN);
+		board.setCasaValue(3, 0, Token.GREEN);
+		board.setCasaValue(4, 2, Token.GREEN);
 	}
 
 }
