@@ -13,11 +13,13 @@ public abstract class Nodo {
 
 	protected Tabuleiro tabuleiro;
 
-	public abstract void putUtilityPoint(Long utilityPoint);
+	public abstract void setUtilityPoint(Long utilityPoint);
 
 	public abstract Long getUtilityPoint();
 
 	public abstract void createChilds();
+
+	public abstract Tabuleiro getJogada();
 
 	public Long gerarUtilityPoint() {
 		return null;
