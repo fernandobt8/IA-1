@@ -1,6 +1,7 @@
 package utilidade;
 
-import estrutura.Tabuleiro;
+import estrutura.tabuleiro.Tabuleiro;
+import estrutura.tabuleiro.Token;
 
 public class UtilityTest {
 

@@ -1,4 +1,4 @@
-package estrutura;
+package estrutura.nodos;
 
 public abstract class Nodo {
 
