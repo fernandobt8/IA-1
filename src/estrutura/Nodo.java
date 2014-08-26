@@ -1,30 +1,26 @@
 package estrutura;
 
+import java.util.List;
+
 public abstract class Nodo {
 
-	protected Long max;
-	protected Long min;
+	protected Long alphaMin;
+	protected Long betaMax;
+	protected Nodo parent;
+	protected List<Nodo> childs;
 	
 	public Nodo(){
-		this.max = Long.MAX_VALUE;
-		this.min = Long.MIN_VALUE;
+		this.betaMax = Long.MAX_VALUE;
+		this.alphaMin = Long.MIN_VALUE;
 	}
+
+	public Nodo(Nodo parent){
+		this.parent = parent;
+		this.betaMax = parent.betaMax;
+		this.alphaMin = parent.alphaMin;
+	}
+	
 	public abstract void putUtilityPoint(Long utilityPoint);
 	
-	public Long getMax() {
-		return max;
-	}
-
-	public void setMax(Long max) {
-		this.max = max;
-	}
-
-	public Long getMin() {
-		return min;
-	}
-
-	public void setMin(Long min) {
-		this.min = min;
-	}
-
+	public abstract Long getUtilityPoint();
 }
