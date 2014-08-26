@@ -1,14 +1,19 @@
 package estrutura.tabuleiro;
 
-
 public class Tabuleiro {
+
+	public int WIDTH;
+	public int HEIGHT;
 
 	private Casa[][] casas;
 
 	public Tabuleiro() {
-		casas = new Casa[6][7];
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 7; j++) {
+		WIDTH = 7;
+		HEIGHT = 6;
+
+		casas = new Casa[HEIGHT][WIDTH];
+		for (int i = 0; i < HEIGHT; i++) {
+			for (int j = 0; j < WIDTH; j++) {
 				casas[i][j] = new Casa();
 			}
 		}
@@ -18,10 +23,14 @@ public class Tabuleiro {
 		casas[i][j].setTipoCasa(tokenType);
 	}
 
+	public Casa getCasa(int x, int y) {
+		return casas[x][y];
+	}
+
 	public void printBoard() {
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 7; j++) {
-				System.out.print(casas[i][j] + " ");
+		for (int i = 0; i < HEIGHT; i++) {
+			for (int j = 0; j < WIDTH; j++) {
+				System.out.print(casas[i][j] + "\t");
 			}
 			System.out.println();
 		}
