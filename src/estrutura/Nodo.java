@@ -4,13 +4,13 @@ public abstract class Nodo {
 
 	protected Long max;
 	protected Long min;
-	
+
 	public Nodo(){
-		this.max = Long.MAX_VALUE;
-		this.min = Long.MIN_VALUE;
+		max = Long.MAX_VALUE;
+		min = Long.MIN_VALUE;
 	}
 	public abstract void putUtilityPoint(Long utilityPoint);
-	
+
 	public Long getMax() {
 		return max;
 	}
