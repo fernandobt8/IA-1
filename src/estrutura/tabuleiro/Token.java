@@ -1,4 +1,4 @@
-package utilidade;
+package estrutura.tabuleiro;
 
 public enum Token {
 

@@ -1,4 +1,4 @@
-package estrutura;
+package estrutura.nodos;
 
 import java.util.ArrayList;
 

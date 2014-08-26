@@ -1,6 +1,5 @@
-package estrutura;
+package estrutura.tabuleiro;
 
-import utilidade.Token;
 
 public class Casa {
 
