@@ -3,9 +3,9 @@ package utilidade;
 import estrutura.tabuleiro.Tabuleiro;
 import estrutura.tabuleiro.Token;
 
-public class UtilidadeVizinhos {
+public class UtilidadeCombinacoes {
 
-	public static int calculateUtilityVizinhos(Tabuleiro tabuleiro) {
+	public static int calculateUtilityCombinacoes(Tabuleiro tabuleiro) {
 		System.out.println();
 		int maxUtilidade = Integer.MIN_VALUE;
 

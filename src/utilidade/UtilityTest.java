@@ -9,7 +9,8 @@ public class UtilityTest {
 
 	public static void main(String[] args) {
 		initBoard();
-		System.out.println(UtilidadeVizinhos.calculateUtility(board));
+		System.out.println("Utilidade total com vizinhos:    " + UtilidadeVizinhos.calculateUtilityVizinhos(board));
+		System.out.println("Utilidade total com combinações: " + UtilidadeCombinacoes.calculateUtilityCombinacoes(board));
 	}
 
 	private static void initBoard() {
