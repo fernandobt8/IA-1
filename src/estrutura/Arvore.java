@@ -1,5 +1,8 @@
 package estrutura;
 
+import estrutura.nodos.Nodo;
+import estrutura.nodos.NodoMinimo;
+
 public class Arvore {
 
 	private Nodo begin;

@@ -2,6 +2,8 @@ package estrutura.nodos;
 
 import java.util.List;
 
+import estrutura.tabuleiro.Tabuleiro;
+
 public abstract class Nodo {
 
 	protected Long alphaMin;
