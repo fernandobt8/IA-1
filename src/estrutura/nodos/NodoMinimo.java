@@ -1,4 +1,4 @@
-package estrutura;
+package estrutura.nodos;
 
 public class NodoMinimo extends Nodo {
 
