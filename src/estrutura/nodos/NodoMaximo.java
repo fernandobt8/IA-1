@@ -1,7 +1,5 @@
 package estrutura.nodos;
 
-import java.util.ArrayList;
-
 import estrutura.tabuleiro.Tabuleiro;
 
 public class NodoMaximo extends Nodo {
@@ -10,41 +8,27 @@ public class NodoMaximo extends Nodo {
 		super(parent, colunaJogada);
 	}
 
-	public NodoMaximo() {
-		super();
+	public NodoMaximo(Tabuleiro tabu) {
+		super(tabu);
 	}
 
 	@Override
 	public void setUtilityPoint(Long utilityPoint) {
-		if (utilityPoint > this.alphaMin) {
-			this.alphaMin = utilityPoint;
+		if (utilityPoint.compareTo(this.alphaMin) > 0) {
+			this.alphaMin = utilityPoint.longValue();
+			// System.out.println(this.name + "max -" + this.alphaMin + " - " + this.betaMax);
 		}
 	}
 
 	@Override
 	public Long getUtilityPoint() {
-		return this.alphaMin;
+		return this.alphaMin.longValue();
 	}
 
 	@Override
-	public void createChilds() {
-		this.childs = new ArrayList<>();
-		for (int i = 0; i < 7; i++) {
-			// TODO verificar se a coluna do tabuleiro ja esta cheia
-			// evitar filhos desnecessarios
-			this.childs.add(new NodoMinimo(this, i));
-		}
-	}
-
-	@Override
-	public Tabuleiro getJogada() {
-		Nodo maximo = this.childs.get(0);
-		for (int i = 1; i < 7; i++) {
-			Nodo current = this.childs.get(i);
-			if (current.getUtilityPoint().compareTo(maximo.getUtilityPoint()) > 0) {
-				maximo = current;
-			}
-		}
-		return maximo.getTabuleiro();
+	public Nodo createChild() {
+		NodoMinimo nodoMinimo = new NodoMinimo(this, this.numberChild++);
+		this.childs.add(nodoMinimo);
+		return nodoMinimo;
 	}
 }

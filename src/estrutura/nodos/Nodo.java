@@ -1,15 +1,17 @@
 package estrutura.nodos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import estrutura.tabuleiro.Tabuleiro;
 
 public abstract class Nodo {
-
-	protected Long alphaMin;
 	protected Long betaMax;
+	protected Long alphaMin;
+	protected String name;
 	protected Nodo parent;
-	protected List<Nodo> childs;
+	protected List<Nodo> childs = new ArrayList<>();
+	protected int numberChild = 0;
 
 	protected Tabuleiro tabuleiro;
 
@@ -17,27 +19,34 @@ public abstract class Nodo {
 
 	public abstract Long getUtilityPoint();
 
-	public abstract void createChilds();
+	public abstract Nodo createChild();
 
-	public abstract Tabuleiro getJogada();
+	public Long getBetaMax() {
+		return this.betaMax;
+	}
+
+	public Long getAlphaMin() {
+		return this.alphaMin;
+	}
 
 	public Long gerarUtilityPoint() {
-		return null;
+		long longValue = new Double(Math.random() * 100).longValue();
+		// System.out.println(this.name + "- " + longValue);
+		return longValue;
 	}
 
-	public List<Nodo> getChilds() {
-		return this.childs;
-	}
-
-	public Nodo() {
+	public Nodo(Tabuleiro tabu) {
+		this.name = "1";
+		this.tabuleiro = tabu;
 		this.betaMax = Long.MAX_VALUE;
 		this.alphaMin = Long.MIN_VALUE;
 	}
 
 	public Nodo(Nodo parent, int colunaJogada) {
+		this.name = parent.name + "." + colunaJogada;
 		this.parent = parent;
-		this.betaMax = parent.betaMax;
-		this.alphaMin = parent.alphaMin;
+		this.betaMax = parent.betaMax.longValue();
+		this.alphaMin = parent.alphaMin.longValue();
 		// TODO gerar jogada baseado na coluna q o pai passo
 	}
 
@@ -47,6 +56,19 @@ public abstract class Nodo {
 
 	public Tabuleiro getTabuleiro() {
 		return this.tabuleiro;
+	}
+
+	public Tabuleiro getJogada() {
+		for (Nodo nodo : this.childs) {
+			if (nodo.getUtilityPoint().equals(this.getUtilityPoint())) {
+				return nodo.getTabuleiro();
+			}
+		}
+		return null;
+	}
+
+	public boolean hasMoreChild() {
+		return this.numberChild < 7;
 	}
 
 }
