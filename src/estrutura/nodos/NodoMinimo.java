@@ -21,7 +21,7 @@ public class NodoMinimo extends Nodo {
 
 	@Override
 	public Nodo createChild() {
-		NodoMaximo nodoMaximo = new NodoMaximo(this, this.numberChild++);
+		NodoMaximo nodoMaximo = new NodoMaximo(this, this.currentChildNumber.getNextChild());
 		this.childs.add(nodoMaximo);
 		return nodoMaximo;
 	}

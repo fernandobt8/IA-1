@@ -9,9 +9,8 @@ public abstract class Nodo {
 	protected Long betaMax;
 	protected Long alphaMin;
 	protected String name;
-	protected Nodo parent;
 	protected List<Nodo> childs = new ArrayList<>();
-	protected int numberChild = 0;
+	protected CountChild currentChildNumber;
 
 	protected Tabuleiro tabuleiro;
 
@@ -21,54 +20,42 @@ public abstract class Nodo {
 
 	public abstract Nodo createChild();
 
-	public Long getBetaMax() {
-		return this.betaMax;
-	}
-
-	public Long getAlphaMin() {
-		return this.alphaMin;
-	}
-
 	public Long gerarUtilityPoint() {
-		long longValue = new Double(Math.random() * 100).longValue();
-		// System.out.println(this.name + "- " + longValue);
-		return longValue;
+		return this.tabuleiro.gerarUtilityPoint();
 	}
 
 	public Nodo(Tabuleiro tabu) {
 		this.name = "1";
-		this.tabuleiro = tabu;
+		this.tabuleiro = tabu.clone();
 		this.betaMax = Long.MAX_VALUE;
 		this.alphaMin = Long.MIN_VALUE;
+		this.currentChildNumber = new CountChild();
 	}
 
 	public Nodo(Nodo parent, int colunaJogada) {
 		this.name = parent.name + "." + colunaJogada;
-		this.parent = parent;
+		this.tabuleiro = parent.tabuleiro.clone();
+		this.tabuleiro.jogar(colunaJogada);
 		this.betaMax = parent.betaMax.longValue();
 		this.alphaMin = parent.alphaMin.longValue();
-		// TODO gerar jogada baseado na coluna q o pai passo
+		this.currentChildNumber = new CountChild();
 	}
 
 	public boolean trespasso() {
 		return this.alphaMin.compareTo(this.betaMax) >= 0;
 	}
 
-	public Tabuleiro getTabuleiro() {
-		return this.tabuleiro;
-	}
-
 	public Tabuleiro getJogada() {
 		for (Nodo nodo : this.childs) {
 			if (nodo.getUtilityPoint().equals(this.getUtilityPoint())) {
-				return nodo.getTabuleiro();
+				return nodo.tabuleiro;
 			}
 		}
 		return null;
 	}
 
 	public boolean hasMoreChild() {
-		return this.numberChild < 7;
+		return this.currentChildNumber.hasMoreChild();
 	}
 
 }
