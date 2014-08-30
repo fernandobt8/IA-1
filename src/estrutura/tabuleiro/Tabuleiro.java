@@ -46,6 +46,10 @@ public class Tabuleiro {
 		// TODO fazer
 	}
 
+	public boolean hasColunaDisponivel(int column) {
+		return true;
+	}
+
 	public Long gerarUtilityPoint() {
 		return new Double(Math.random() * 100).longValue();
 	}

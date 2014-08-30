@@ -1,23 +1,14 @@
 package utilidade;
 
-import estrutura.nodos.CountChild;
+import estrutura.Arvore;
+import estrutura.tabuleiro.Tabuleiro;
 
 public class ArvoreTest {
 
 	public static void main(String[] args) {
-		CountChild c = new CountChild();
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.getNextChild());
-		System.out.println(c.hasMoreChild());
-
-		// Arvore arvore = new Arvore(5);
-		// Tabuleiro tabuleiro = new Tabuleiro();
-		// arvore.jogar(tabuleiro);
-		// System.out.println(arvore.getBegin().getUtilityPoint());
+		Arvore arvore = new Arvore(2);
+		Tabuleiro tabuleiro = new Tabuleiro();
+		arvore.jogar(tabuleiro);
+		System.out.println(arvore.getBegin().getUtilityPoint());
 	}
 }

@@ -21,7 +21,10 @@ public abstract class Nodo {
 	public abstract Nodo createChild();
 
 	public Long gerarUtilityPoint() {
-		return this.tabuleiro.gerarUtilityPoint();
+		long longValue = new Double(Math.random() * 100).longValue();
+		System.out.println(this.name + "- " + longValue);
+		return longValue;
+		// return this.tabuleiro.gerarUtilityPoint();
 	}
 
 	public Nodo(Tabuleiro tabu) {
@@ -54,8 +57,25 @@ public abstract class Nodo {
 		return null;
 	}
 
-	public boolean hasMoreChild() {
-		return this.currentChildNumber.hasMoreChild();
+	public boolean setNextChild() {
+		if (this.currentChildNumber.hasMoreChild()) {
+			int nextChild = this.currentChildNumber.getNextChild();
+			while (!this.tabuleiro.hasColunaDisponivel(nextChild)) {
+				if (this.currentChildNumber.hasMoreChild()) {
+					nextChild = this.currentChildNumber.getNextChild();
+				} else {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public void printChilds() {
+		for (Nodo n : this.childs) {
+			System.out.println(n.getUtilityPoint());
+		}
 	}
 
 }

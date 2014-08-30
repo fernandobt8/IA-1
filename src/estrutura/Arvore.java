@@ -23,7 +23,7 @@ public class Arvore {
 			return current.gerarUtilityPoint();
 		} else {
 			int profun = ++profundidade;
-			while (current.hasMoreChild()) {
+			while (current.setNextChild()) {
 				if (current.trespasso()) {
 					return current.getUtilityPoint();
 				}

@@ -21,6 +21,14 @@ public class CountChild {
 		}
 	}
 
+	public int getCurrentChild() {
+		if (this.operacao.equals(MoreOrLess.LESS)) {
+			return this.currentMore;
+		} else {
+			return this.currentLess;
+		}
+	}
+
 	public boolean hasMoreChild() {
 		return this.currentLess > 0 || this.currentMore < 6;
 	}
