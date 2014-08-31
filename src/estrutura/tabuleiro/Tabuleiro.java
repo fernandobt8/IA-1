@@ -55,7 +55,7 @@ public class Tabuleiro {
 	}
 
 	public boolean win() {
-		return false;
+		return UtilidadeCombinacoes.calculateUtilityCombinacoes(this) > 100000;
 	}
 
 	public Long gerarUtilityPoint() {

@@ -73,7 +73,7 @@ public class UtilidadeCombinacoes {
 			}
 		}
 
-		return tipoCasaCentral == Token.BLUE ? maxUtilidade : -maxUtilidade;
+		return maxUtilidade;
 	}
 
 	private static int calcularUtilidade(int utilidade) {

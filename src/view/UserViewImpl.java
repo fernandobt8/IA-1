@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -62,11 +63,11 @@ public class UserViewImpl extends JFrame {
 	}
 
 	public void showWin() {
-
+		JOptionPane.showMessageDialog(null, "Você ganhou!");
 	}
 
 	public void showLoser() {
-
+		JOptionPane.showMessageDialog(null, "Você perdeu!");
 	}
 
 	public class CellRenderer extends DefaultTableCellRenderer {
