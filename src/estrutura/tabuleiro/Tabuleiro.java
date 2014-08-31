@@ -1,5 +1,7 @@
 package estrutura.tabuleiro;
 
+import utilidade.UtilidadeCombinacoes;
+
 public class Tabuleiro {
 	public int COLUMNS;
 	public int ROWS;
@@ -57,7 +59,8 @@ public class Tabuleiro {
 	}
 
 	public Long gerarUtilityPoint() {
-		return new Double(Math.random() * 100).longValue();
+		int utilidade = UtilidadeCombinacoes.calculateUtilityCombinacoes(this);
+		return (long) utilidade;
 	}
 
 	@Override
