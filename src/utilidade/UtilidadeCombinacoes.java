@@ -41,14 +41,14 @@ public class UtilidadeCombinacoes {
 				int utilidade = 1;
 
 				if (i == 0 && j == 0) {
-					break;
+					continue;
 				}
 
 				int auxi = i;
 				int auxj = j;
-				for (int v = 0; v < 3; v++) { // Observa até 4 vizinhos na direção indicada;
-					int casaX = x + auxi;
-					int casaY = y + auxj;
+				for (int v = 1; v <= 3; v++) { // Observa até 4 vizinhos na direção indicada;
+					int casaX = x + v * auxi;
+					int casaY = y + v * auxj;
 
 					if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.ROWS && casaY < tabuleiro.COLUMNS) { // Se for uma casa válida;
 						Token tipoCasaAnalisada = tabuleiro.getCasa(casaX, casaY).getTipoCasa();
