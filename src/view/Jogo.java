@@ -21,6 +21,7 @@ public class Jogo {
 		if (this.tabuleiro.hasColunaDisponivel(col)) {
 			this.tabuleiro.setCasaValue(row, col, Token.BLUE);
 			Tabuleiro jogada = this.computer.getJogada(this.tabuleiro);
+			this.tabuleiro = jogada;
 			this.userView.updateTableModel(this.tabuleiro);
 		}
 	}
