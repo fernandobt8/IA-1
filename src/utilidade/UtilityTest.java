@@ -23,7 +23,7 @@ public class UtilityTest {
 				if (rand < 0.25) {
 					board.setCasaValue(i, j, Token.BLUE);
 				} else if (rand < 0.5) {
-					board.setCasaValue(i, j, Token.GREEN);
+					board.setCasaValue(i, j, Token.RED);
 				} else {
 					board.setCasaValue(i, j, Token.BLANK);
 				}
@@ -41,13 +41,13 @@ public class UtilityTest {
 		}
 
 		board.setCasaValue(1, 1, Token.BLUE);
-		board.setCasaValue(0, 0, Token.GREEN);
+		board.setCasaValue(0, 0, Token.RED);
 		board.setCasaValue(1, 0, Token.BLUE);
 		board.setCasaValue(2, 2, Token.BLUE);
 		board.setCasaValue(3, 3, Token.BLUE);
-		board.setCasaValue(2, 0, Token.GREEN);
-		board.setCasaValue(3, 0, Token.GREEN);
-		board.setCasaValue(4, 2, Token.GREEN);
+		board.setCasaValue(2, 0, Token.RED);
+		board.setCasaValue(3, 0, Token.RED);
+		board.setCasaValue(4, 2, Token.RED);
 	}
 
 }
