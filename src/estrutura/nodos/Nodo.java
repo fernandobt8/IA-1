@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import estrutura.tabuleiro.Tabuleiro;
-import estrutura.tabuleiro.Token;
 
 public abstract class Nodo {
 	protected Long betaMax;
@@ -38,7 +37,6 @@ public abstract class Nodo {
 	public Nodo(Nodo parent, int colunaJogada) {
 		this.name = parent.name + "." + colunaJogada;
 		this.tabuleiro = parent.tabuleiro.clone();
-		this.tabuleiro.jogar(colunaJogada, Token.RED);
 		this.betaMax = parent.betaMax.longValue();
 		this.alphaMin = parent.alphaMin.longValue();
 		this.currentChildNumber = new CountChild();

@@ -1,11 +1,13 @@
 package estrutura.nodos;
 
 import estrutura.tabuleiro.Tabuleiro;
+import estrutura.tabuleiro.Token;
 
 public class NodoMaximo extends Nodo {
 
 	public NodoMaximo(NodoMinimo parent, int colunaJogada) {
 		super(parent, colunaJogada);
+		this.tabuleiro.jogar(colunaJogada, Token.RED);
 	}
 
 	public NodoMaximo(Tabuleiro tabu) {
