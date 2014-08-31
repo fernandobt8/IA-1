@@ -40,11 +40,16 @@ public class Tabuleiro {
 	}
 
 	public void jogar(int column, Token token) {
-		// TODO fazer
+		for (int i = 0; i < this.ROWS; i++) {
+			if (i + 1 >= this.ROWS || !this.casas[i + 1][column].getTipoCasa().equals(Token.BLANK)) {
+				this.casas[i][column].setTipoCasa(token);
+				return;
+			}
+		}
 	}
 
 	public boolean hasColunaDisponivel(int column) {
-		return true;
+		return this.casas[0][column].tipoCasa.equals(Token.BLANK);
 	}
 
 	public boolean win() {

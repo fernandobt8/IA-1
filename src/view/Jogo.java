@@ -19,7 +19,7 @@ public class Jogo {
 
 	public void jogar(int row, int col) {
 		if (this.tabuleiro.hasColunaDisponivel(col)) {
-			this.tabuleiro.setCasaValue(row, col, Token.BLUE);
+			this.tabuleiro.jogar(col, Token.BLUE);
 			if (!this.tabuleiro.win()) {
 				this.tabuleiro = this.computer.getJogada(this.tabuleiro);
 				if (this.tabuleiro.win()) {

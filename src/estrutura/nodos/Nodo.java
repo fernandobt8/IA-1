@@ -38,7 +38,7 @@ public abstract class Nodo {
 	public Nodo(Nodo parent, int colunaJogada) {
 		this.name = parent.name + "." + colunaJogada;
 		this.tabuleiro = parent.tabuleiro.clone();
-		this.tabuleiro.setCasaValue(5, 6, Token.RED);
+		this.tabuleiro.jogar(colunaJogada, Token.RED);
 		this.betaMax = parent.betaMax.longValue();
 		this.alphaMin = parent.alphaMin.longValue();
 		this.currentChildNumber = new CountChild();
