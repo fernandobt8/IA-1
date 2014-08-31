@@ -11,28 +11,25 @@ public class UtilidadeCombinacoes {
 		System.out.println();
 
 		UtilidadeCombinacoes.tabuleiro = tabuleiro;
-		int maxUtilidade = Integer.MIN_VALUE;
+		int utilidadeTabuleiro = 0;
 
 		for (int x = 0; x < tabuleiro.ROWS; x++) {
 			for (int y = 0; y < tabuleiro.COLUMNS; y++) {
 				Token tipoCasaCentral = tabuleiro.getCasa(x, y).getTipoCasa();
-				int utilidade = 0;
+				int utilidadeCasa = 0;
 
 				if (tipoCasaCentral != Token.BLANK) {
-					utilidade = calculateUtilidadeCasa(x, y, tipoCasaCentral);
-
-					if (utilidade > maxUtilidade) {
-						maxUtilidade = utilidade;
-					}
-
+					utilidadeCasa = calculateUtilidadeCasa(x, y, tipoCasaCentral);
+					utilidadeTabuleiro += utilidadeCasa;
 				}
-				tabuleiro.getCasa(x, y).setUtilidade(utilidade);
-				System.out.print(utilidade + "\t");
+
+				tabuleiro.getCasa(x, y).setUtilidade(utilidadeCasa);
+				System.out.print(utilidadeCasa + "\t");
 			}
 			System.out.println();
 		}
 
-		return maxUtilidade;
+		return utilidadeTabuleiro;
 	}
 
 	private static int calculateUtilidadeCasa(int x, int y, Token tipoCasaCentral) {
@@ -47,14 +44,18 @@ public class UtilidadeCombinacoes {
 					break;
 				}
 
+				int auxi = i;
+				int auxj = j;
 				for (int v = 0; v < 3; v++) { // Observa até 4 vizinhos na direção indicada;
-					int casaX = x + i;
-					int casaY = y + j;
+					int casaX = x + auxi;
+					int casaY = y + auxj;
 
 					if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.ROWS && casaY < tabuleiro.COLUMNS) { // Se for uma casa válida;
 						Token tipoCasaAnalisada = tabuleiro.getCasa(casaX, casaY).getTipoCasa();
 
 						if (tipoCasaAnalisada == Token.BLANK) {
+							auxi += i;
+							auxj += j;
 							continue;
 						} else if (tipoCasaAnalisada != tipoCasaCentral) {
 							break;
@@ -72,7 +73,7 @@ public class UtilidadeCombinacoes {
 			}
 		}
 
-		return maxUtilidade;
+		return tipoCasaCentral == Token.BLUE ? maxUtilidade : -maxUtilidade;
 	}
 
 }
