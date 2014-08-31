@@ -60,7 +60,7 @@ public class UtilidadeCombinacoes {
 						} else if (tipoCasaAnalisada != tipoCasaCentral) {
 							break;
 						} else if (tipoCasaAnalisada == tipoCasaCentral) {
-							utilidade *= 10;
+							utilidade = calcularUtilidade(utilidade);
 						}
 					} else {
 						break;
@@ -74,6 +74,11 @@ public class UtilidadeCombinacoes {
 		}
 
 		return tipoCasaCentral == Token.BLUE ? maxUtilidade : -maxUtilidade;
+	}
+
+	private static int calcularUtilidade(int utilidade) {
+		int length = (int) Math.log10(utilidade);
+		return (int) Math.pow(10, length + 2);
 	}
 
 }

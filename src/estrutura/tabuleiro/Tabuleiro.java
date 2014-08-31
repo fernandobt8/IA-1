@@ -60,6 +60,7 @@ public class Tabuleiro {
 
 	public Long gerarUtilityPoint() {
 		int utilidade = UtilidadeCombinacoes.calculateUtilityCombinacoes(this);
+		System.out.println(utilidade);
 		return (long) utilidade;
 	}
 
