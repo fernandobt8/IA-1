@@ -16,6 +16,7 @@ import estrutura.tabuleiro.Tabuleiro;
 import estrutura.tabuleiro.Token;
 
 public class UserViewImpl extends JFrame {
+	private static final long serialVersionUID = 1L;
 	private JTable table;
 	private TableModel tableModel;
 	private Jogo jogo;
@@ -57,9 +58,7 @@ public class UserViewImpl extends JFrame {
 	}
 
 	public void updateTableModel(Tabuleiro tabuleiro) {
-		// this.tableModel.setTabuleiro(tabuleiro);
-		((TableModel) this.table.getModel()).setTabuleiro(tabuleiro);
-		this.table.repaint();
+		this.tableModel.setTabuleiro(tabuleiro);
 	}
 
 	public class CellRenderer extends DefaultTableCellRenderer {

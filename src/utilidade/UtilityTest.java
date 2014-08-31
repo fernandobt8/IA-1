@@ -17,8 +17,8 @@ public class UtilityTest {
 	private static void initBoard() {
 		board = new Tabuleiro();
 
-		for (int i = 0; i < board.HEIGHT; i++) {
-			for (int j = 0; j < board.WIDTH; j++) {
+		for (int i = 0; i < board.ROWS; i++) {
+			for (int j = 0; j < board.COLUMNS; j++) {
 				double rand = Math.random();
 				if (rand < 0.25) {
 					board.setCasaValue(i, j, Token.BLUE);
@@ -34,8 +34,8 @@ public class UtilityTest {
 	private static void initBoardNaMao() {
 		board = new Tabuleiro();
 
-		for (int i = 0; i < board.HEIGHT; i++) {
-			for (int j = 0; j < board.WIDTH; j++) {
+		for (int i = 0; i < board.ROWS; i++) {
+			for (int j = 0; j < board.COLUMNS; j++) {
 				board.setCasaValue(i, j, Token.BLANK);
 			}
 		}

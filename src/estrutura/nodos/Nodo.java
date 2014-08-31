@@ -21,10 +21,10 @@ public abstract class Nodo {
 	public abstract Nodo createChild();
 
 	public Long gerarUtilityPoint() {
-		long longValue = new Double(Math.random() * 100).longValue();
+		// long longValue = new Double(Math.random() * 100).longValue();
 		// System.out.println(this.name + "- " + longValue);
-		return longValue;
-		// return this.tabuleiro.gerarUtilityPoint();
+		// return longValue;
+		return this.tabuleiro.gerarUtilityPoint();
 	}
 
 	public Nodo(Tabuleiro tabu) {
@@ -71,11 +71,4 @@ public abstract class Nodo {
 		}
 		return false;
 	}
-
-	public void printChilds() {
-		for (Nodo n : this.childs) {
-			System.out.println(n.getUtilityPoint());
-		}
-	}
-
 }

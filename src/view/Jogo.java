@@ -20,8 +20,7 @@ public class Jogo {
 	public void jogar(int row, int col) {
 		if (this.tabuleiro.hasColunaDisponivel(col)) {
 			this.tabuleiro.setCasaValue(row, col, Token.BLUE);
-			Tabuleiro jogada = this.computer.getJogada(this.tabuleiro);
-			this.tabuleiro = jogada;
+			this.tabuleiro = this.computer.getJogada(this.tabuleiro);
 			this.userView.updateTableModel(this.tabuleiro);
 		}
 	}

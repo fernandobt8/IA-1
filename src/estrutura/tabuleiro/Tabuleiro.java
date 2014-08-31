@@ -2,26 +2,26 @@ package estrutura.tabuleiro;
 
 public class Tabuleiro {
 
-	public int WIDTH;
-	public int HEIGHT;
+	public int COLUMNS;
+	public int ROWS;
 
 	private Casa[][] casas;
 
 	public Tabuleiro() {
-		this.WIDTH = 7;
-		this.HEIGHT = 6;
+		this.COLUMNS = 7;
+		this.ROWS = 6;
 
-		this.casas = new Casa[this.HEIGHT][this.WIDTH];
-		for (int i = 0; i < this.HEIGHT; i++) {
-			for (int j = 0; j < this.WIDTH; j++) {
+		this.casas = new Casa[this.ROWS][this.COLUMNS];
+		for (int i = 0; i < this.ROWS; i++) {
+			for (int j = 0; j < this.COLUMNS; j++) {
 				this.casas[i][j] = new Casa();
 			}
 		}
 	}
 
 	public Tabuleiro(Casa[][] casas, int width, int height) {
-		this.WIDTH = width;
-		this.HEIGHT = height;
+		this.COLUMNS = width;
+		this.ROWS = height;
 		this.casas = casas;
 	}
 
@@ -34,15 +34,15 @@ public class Tabuleiro {
 	}
 
 	public void printBoard() {
-		for (int i = 0; i < this.HEIGHT; i++) {
-			for (int j = 0; j < this.WIDTH; j++) {
+		for (int i = 0; i < this.ROWS; i++) {
+			for (int j = 0; j < this.COLUMNS; j++) {
 				System.out.print(this.casas[i][j] + "\t");
 			}
 			System.out.println();
 		}
 	}
 
-	public void jogar(int column) {
+	public void jogar(int column, Token token) {
 		// TODO fazer
 	}
 
@@ -56,12 +56,12 @@ public class Tabuleiro {
 
 	@Override
 	public Tabuleiro clone() {
-		Casa[][] casas = new Casa[this.HEIGHT][this.WIDTH];
-		for (int i = 0; i < this.HEIGHT; i++) {
-			for (int j = 0; j < this.WIDTH; j++) {
+		Casa[][] casas = new Casa[this.ROWS][this.COLUMNS];
+		for (int i = 0; i < this.ROWS; i++) {
+			for (int j = 0; j < this.COLUMNS; j++) {
 				casas[i][j] = this.casas[i][j].clone();
 			}
 		}
-		return new Tabuleiro(casas, this.WIDTH, this.HEIGHT);
+		return new Tabuleiro(casas, this.COLUMNS, this.ROWS);
 	}
 }

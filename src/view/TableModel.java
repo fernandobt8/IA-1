@@ -14,11 +14,7 @@ public class TableModel extends AbstractTableModel {
 
 	public void setTabuleiro(Tabuleiro tabuleiro) {
 		this.tabuleiro = tabuleiro;
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 6; j++) {
-				this.fireTableCellUpdated(i, j);
-			}
-		}
+		this.fireTableDataChanged();
 	}
 
 	@Override
@@ -33,12 +29,12 @@ public class TableModel extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return 6;
+		return this.tabuleiro.ROWS;
 	}
 
 	@Override
 	public int getColumnCount() {
-		return 7;
+		return this.tabuleiro.COLUMNS;
 	}
 
 	@Override

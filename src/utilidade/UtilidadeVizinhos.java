@@ -9,8 +9,8 @@ public class UtilidadeVizinhos {
 		System.out.println();
 		int maxUtilidade = Integer.MIN_VALUE;
 
-		for (int x = 0; x < tabuleiro.HEIGHT; x++) {
-			for (int y = 0; y < tabuleiro.WIDTH; y++) {
+		for (int x = 0; x < tabuleiro.ROWS; x++) {
+			for (int y = 0; y < tabuleiro.COLUMNS; y++) {
 				int utilidade = 0;
 				Token token = tabuleiro.getCasa(x, y).getTipoCasa();
 
@@ -21,7 +21,7 @@ public class UtilidadeVizinhos {
 							int casaX = x - 1 + i;
 							int casaY = y - 1 + j;
 
-							if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.HEIGHT && casaY < tabuleiro.WIDTH) {
+							if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.ROWS && casaY < tabuleiro.COLUMNS) {
 								utilidade += calcularUtilidade(token, tabuleiro.getCasa(casaX, casaY).getTipoCasa());
 							}
 						}

@@ -13,8 +13,8 @@ public class UtilidadeCombinacoes {
 		UtilidadeCombinacoes.tabuleiro = tabuleiro;
 		int maxUtilidade = Integer.MIN_VALUE;
 
-		for (int x = 0; x < tabuleiro.HEIGHT; x++) {
-			for (int y = 0; y < tabuleiro.WIDTH; y++) {
+		for (int x = 0; x < tabuleiro.ROWS; x++) {
+			for (int y = 0; y < tabuleiro.COLUMNS; y++) {
 				Token tipoCasaCentral = tabuleiro.getCasa(x, y).getTipoCasa();
 				int utilidade = 0;
 
@@ -51,7 +51,7 @@ public class UtilidadeCombinacoes {
 					int casaX = x + i;
 					int casaY = y + j;
 
-					if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.HEIGHT && casaY < tabuleiro.WIDTH) { // Se for uma casa válida;
+					if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.ROWS && casaY < tabuleiro.COLUMNS) { // Se for uma casa válida;
 						Token tipoCasaAnalisada = tabuleiro.getCasa(casaX, casaY).getTipoCasa();
 
 						if (tipoCasaAnalisada == Token.BLANK) {
