@@ -1,9 +1,15 @@
 package estrutura.nodos;
 
+import estrutura.tabuleiro.Tabuleiro;
+
 public class NodoMinimo extends Nodo {
 
 	public NodoMinimo(NodoMaximo parent, int colunaJogada) {
 		super(parent, colunaJogada);
+	}
+
+	public NodoMinimo(Tabuleiro tabu) {
+		super(tabu);
 	}
 
 	@Override

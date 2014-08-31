@@ -1,20 +1,21 @@
 package estrutura;
 
 import estrutura.nodos.Nodo;
-import estrutura.nodos.NodoMaximo;
+import estrutura.nodos.NodoMinimo;
 import estrutura.tabuleiro.Tabuleiro;
 
 public class Arvore {
 	private int profundidade;
-	private NodoMaximo begin;
+	private NodoMinimo begin;
 
 	public Arvore(int profundidade) {
 		this.profundidade = profundidade;
 	}
 
 	public Tabuleiro getJogada(Tabuleiro tabu) {
-		this.begin = new NodoMaximo(tabu);
+		this.begin = new NodoMinimo(tabu);
 		this.begin.setUtilityPoint(this.percorrer(this.begin, 0));
+		this.begin.printChilds();
 		return this.begin.getJogada();
 	}
 
@@ -33,7 +34,7 @@ public class Arvore {
 		}
 	}
 
-	public NodoMaximo getBegin() {
+	public NodoMinimo getBegin() {
 		return this.begin;
 	}
 }

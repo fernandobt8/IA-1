@@ -50,6 +50,7 @@ public abstract class Nodo {
 	public Tabuleiro getJogada() {
 		for (Nodo nodo : this.childs) {
 			if (nodo.getUtilityPoint().equals(this.getUtilityPoint())) {
+				System.out.println(nodo.getUtilityPoint());
 				return nodo.tabuleiro;
 			}
 		}
@@ -69,5 +70,11 @@ public abstract class Nodo {
 			return true;
 		}
 		return false;
+	}
+
+	public void printChilds() {
+		for (Nodo n : this.childs) {
+			System.out.println(n.getUtilityPoint());
+		}
 	}
 }

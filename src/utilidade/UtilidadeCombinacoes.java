@@ -8,7 +8,7 @@ public class UtilidadeCombinacoes {
 	private static Tabuleiro tabuleiro;
 
 	public static int calculateUtilityCombinacoes(Tabuleiro tabuleiro) {
-		System.out.println();
+		// System.out.println();
 
 		UtilidadeCombinacoes.tabuleiro = tabuleiro;
 		int utilidadeTabuleiro = 0;
@@ -24,9 +24,9 @@ public class UtilidadeCombinacoes {
 				}
 
 				tabuleiro.getCasa(x, y).setUtilidade(utilidadeCasa);
-				System.out.print(utilidadeCasa + "\t");
+				// System.out.print(utilidadeCasa + "\t");
 			}
-			System.out.println();
+			// System.out.println();
 		}
 
 		return utilidadeTabuleiro;
