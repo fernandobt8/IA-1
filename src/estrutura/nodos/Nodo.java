@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import estrutura.tabuleiro.Tabuleiro;
+import estrutura.tabuleiro.Token;
 
 public abstract class Nodo {
 	protected Long betaMax;
@@ -11,7 +12,6 @@ public abstract class Nodo {
 	protected String name;
 	protected List<Nodo> childs = new ArrayList<>();
 	protected CountChild currentChildNumber;
-
 	protected Tabuleiro tabuleiro;
 
 	public abstract void setUtilityPoint(Long utilityPoint);
@@ -22,7 +22,7 @@ public abstract class Nodo {
 
 	public Long gerarUtilityPoint() {
 		long longValue = new Double(Math.random() * 100).longValue();
-		System.out.println(this.name + "- " + longValue);
+		// System.out.println(this.name + "- " + longValue);
 		return longValue;
 		// return this.tabuleiro.gerarUtilityPoint();
 	}
@@ -38,7 +38,7 @@ public abstract class Nodo {
 	public Nodo(Nodo parent, int colunaJogada) {
 		this.name = parent.name + "." + colunaJogada;
 		this.tabuleiro = parent.tabuleiro.clone();
-		this.tabuleiro.jogar(colunaJogada);
+		this.tabuleiro.setCasaValue(5, 6, Token.RED);
 		this.betaMax = parent.betaMax.longValue();
 		this.alphaMin = parent.alphaMin.longValue();
 		this.currentChildNumber = new CountChild();

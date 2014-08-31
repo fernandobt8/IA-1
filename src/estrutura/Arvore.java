@@ -12,7 +12,7 @@ public class Arvore {
 		this.profundidade = profundidade;
 	}
 
-	public Tabuleiro jogar(Tabuleiro tabu) {
+	public Tabuleiro getJogada(Tabuleiro tabu) {
 		this.begin = new NodoMaximo(tabu);
 		this.begin.setUtilityPoint(this.percorrer(this.begin, 0));
 		return this.begin.getJogada();

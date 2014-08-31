@@ -12,13 +12,16 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import estrutura.tabuleiro.Tabuleiro;
 import estrutura.tabuleiro.Token;
 
-public class ViewImpl extends JFrame {
+public class UserViewImpl extends JFrame {
 	private JTable table;
 	private TableModel tableModel;
+	private Jogo jogo;
 
-	public ViewImpl() {
+	public UserViewImpl(Jogo jogo) {
+		this.jogo = jogo;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 600, 600);
 
@@ -37,9 +40,9 @@ public class ViewImpl extends JFrame {
 		this.table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int row = ViewImpl.this.table.rowAtPoint(e.getPoint());
-				int col = ViewImpl.this.table.columnAtPoint(e.getPoint());
-				System.out.println(row + " - " + col);
+				int row = UserViewImpl.this.table.rowAtPoint(e.getPoint());
+				int col = UserViewImpl.this.table.columnAtPoint(e.getPoint());
+				UserViewImpl.this.slotOnMouseClick(row, col);
 			}
 		});
 		this.table.setShowVerticalLines(true);
@@ -49,11 +52,22 @@ public class ViewImpl extends JFrame {
 		panel.add(this.table);
 	}
 
+	public void slotOnMouseClick(int row, int col) {
+		this.jogo.jogar(row, col);
+	}
+
+	public void updateTableModel(Tabuleiro tabuleiro) {
+		// this.tableModel.setTabuleiro(tabuleiro);
+		((TableModel) this.table.getModel()).setTabuleiro(tabuleiro);
+		this.table.repaint();
+	}
+
 	public class CellRenderer extends DefaultTableCellRenderer {
 		JLabel lbl = new JLabel();
 
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			ImageIcon icon = new ImageIcon(this.getClass().getResource(((Token) value).getImage()));
 			this.lbl.setIcon(icon);
 			return this.lbl;

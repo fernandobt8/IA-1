@@ -2,10 +2,24 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
-import estrutura.tabuleiro.Token;
+import estrutura.tabuleiro.Tabuleiro;
 
 public class TableModel extends AbstractTableModel {
 	private static final long serialVersionUID = -979825791869850910L;
+	private Tabuleiro tabuleiro;
+
+	public TableModel() {
+		this.tabuleiro = new Tabuleiro();
+	}
+
+	public void setTabuleiro(Tabuleiro tabuleiro) {
+		this.tabuleiro = tabuleiro;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 6; j++) {
+				this.fireTableCellUpdated(i, j);
+			}
+		}
+	}
 
 	@Override
 	public String getColumnName(int column) {
@@ -29,11 +43,6 @@ public class TableModel extends AbstractTableModel {
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return Token.BLUE;
-	}
-
-	@Override
-	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		super.setValueAt(aValue, rowIndex, columnIndex);
+		return this.tabuleiro.getCasa(rowIndex, columnIndex).getTipoCasa();
 	}
 }
