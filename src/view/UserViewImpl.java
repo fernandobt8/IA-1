@@ -61,6 +61,14 @@ public class UserViewImpl extends JFrame {
 		this.tableModel.setTabuleiro(tabuleiro);
 	}
 
+	public void showWin() {
+
+	}
+
+	public void showLoser() {
+
+	}
+
 	public class CellRenderer extends DefaultTableCellRenderer {
 		JLabel lbl = new JLabel();
 

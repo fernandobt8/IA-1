@@ -1,16 +1,13 @@
 package estrutura.tabuleiro;
 
 public class Tabuleiro {
-
 	public int COLUMNS;
 	public int ROWS;
-
 	private Casa[][] casas;
 
 	public Tabuleiro() {
 		this.COLUMNS = 7;
 		this.ROWS = 6;
-
 		this.casas = new Casa[this.ROWS][this.COLUMNS];
 		for (int i = 0; i < this.ROWS; i++) {
 			for (int j = 0; j < this.COLUMNS; j++) {
@@ -48,6 +45,10 @@ public class Tabuleiro {
 
 	public boolean hasColunaDisponivel(int column) {
 		return true;
+	}
+
+	public boolean win() {
+		return false;
 	}
 
 	public Long gerarUtilityPoint() {
