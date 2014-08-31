@@ -16,7 +16,7 @@ public class NodoMaximo extends Nodo {
 	public void setUtilityPoint(Long utilityPoint) {
 		if (utilityPoint.compareTo(this.alphaMin) > 0) {
 			this.alphaMin = utilityPoint.longValue();
-			// System.out.println(this.name + "max -" + this.alphaMin + " - " + this.betaMax);
+			System.out.println(this.name + "max: " + this.alphaMin + " / " + this.betaMax);
 		}
 	}
 

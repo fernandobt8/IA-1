@@ -9,7 +9,7 @@ import estrutura.tabuleiro.Token;
 public abstract class Nodo {
 	protected Long betaMax;
 	protected Long alphaMin;
-	protected String name;
+	public String name;
 	protected List<Nodo> childs = new ArrayList<>();
 	protected CountChild currentChildNumber;
 	protected Tabuleiro tabuleiro;
@@ -22,7 +22,8 @@ public abstract class Nodo {
 
 	public Long gerarUtilityPoint() {
 		Long gerarUtilityPoint = this.tabuleiro.gerarUtilityPoint();
-		this.setUtilityPoint(gerarUtilityPoint);
+		System.out.println(this.name + ": " + gerarUtilityPoint);
+		// this.setUtilityPoint(gerarUtilityPoint);
 		return gerarUtilityPoint;
 	}
 
