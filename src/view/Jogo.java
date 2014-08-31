@@ -12,7 +12,7 @@ public class Jogo {
 
 	public Jogo() {
 		this.tabuleiro = new Tabuleiro();
-		this.computer = new Arvore(4);
+		this.computer = new Arvore(6);
 		this.userView = new UserViewImpl(this);
 		this.userView.setVisible(true);
 	}

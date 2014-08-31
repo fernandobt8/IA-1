@@ -74,7 +74,7 @@ public abstract class Nodo {
 
 	public void printChilds() {
 		for (Nodo n : this.childs) {
-			System.out.println(n.getUtilityPoint());
+			System.out.println(n.name + " - " + n.getUtilityPoint());
 		}
 	}
 }
