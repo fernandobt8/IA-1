@@ -35,22 +35,22 @@ public class GameSettings {
 
 		JLabel titleLabel = new JLabel("Seja bem-vindo ao invencível Connect4...");
 		titleLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		titleLabel.setBounds(10, 11, 293, 20);
+		titleLabel.setBounds(10, 11, 320, 20);
 		this.settingsFrame.getContentPane().add(titleLabel);
 
 		JLabel difficultyLabel = new JLabel("Escolha o nível de dificuldade:");
 		difficultyLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		difficultyLabel.setBounds(82, 42, 162, 15);
+		difficultyLabel.setBounds(82, 42, 210, 15);
 		this.settingsFrame.getContentPane().add(difficultyLabel);
 
 		this.dif1Radio = new JRadioButton("\tI am a wimp (1)");
 		this.dif1Radio.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		this.dif1Radio.setBounds(109, 64, 109, 23);
+		this.dif1Radio.setBounds(109, 64, 120, 23);
 		this.settingsFrame.getContentPane().add(this.dif1Radio);
 
 		this.dif2Radio = new JRadioButton("Hey, not too rough (2)");
 		this.dif2Radio.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		this.dif2Radio.setBounds(109, 90, 135, 23);
+		this.dif2Radio.setBounds(109, 90, 155, 23);
 		this.settingsFrame.getContentPane().add(this.dif2Radio);
 
 		this.dif4Radio = new JRadioButton("Hurt me plently (4)");
