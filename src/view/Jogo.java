@@ -22,9 +22,9 @@ public class Jogo {
 	public void jogar(int row, int col) {
 		if (this.tabuleiro.hasColunaDisponivel(col)) {
 			this.tabuleiro.jogar(col, Token.BLUE);
-			if (!this.tabuleiro.win()) {
+			if (!this.tabuleiro.checkWinCondition()) {
 				this.tabuleiro = this.computer.getJogada(this.tabuleiro);
-				if (this.tabuleiro.win()) {
+				if (this.tabuleiro.checkWinCondition()) {
 					this.userView.showLoser();
 				}
 			} else {

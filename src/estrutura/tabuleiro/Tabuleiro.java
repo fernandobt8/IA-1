@@ -54,8 +54,9 @@ public class Tabuleiro {
 		return this.casas[0][column].tipoCasa.equals(Token.BLANK);
 	}
 
-	public boolean win() {
-		return false;
+	public boolean checkWinCondition() {
+		boolean ganhou = CalculoUtilidade.testWinCondition(this);
+		return ganhou;
 	}
 
 	public Long gerarUtilityPoint() {

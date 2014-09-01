@@ -80,7 +80,50 @@ public class CalculoUtilidade {
 
 	private static long calcularUtilidade(long utilidade) {
 		long length = (long) Math.log10(utilidade);
+
+		if (length > 6) {
+			return Long.MAX_VALUE;
+		}
 		return (long) Math.pow(10, length + 3);
 	}
 
+	public static boolean testWinCondition(Tabuleiro tabuleiro) {
+		for (int x = 0; x < tabuleiro.ROWS; x++) {
+			for (int y = 0; y < tabuleiro.COLUMNS; y++) {
+				for (int i = -1; i <= 1; i++) {
+					for (int j = -1; j <= 1; j++) {
+						if (i == 0 && j == 0) {
+							continue;
+						}
+
+						boolean naoGanhou = false;
+						Token tipoCasaAnalisada = tabuleiro.getCasa(x, y).getTipoCasa();
+						int auxi = i;
+						int auxj = j;
+						for (int v = 1; v <= 3; v++) { // Observa até 4 vizinhos na direção indicada;
+							int casaX = x + v * auxi;
+							int casaY = y + v * auxj;
+
+							if (casaX >= 0 && casaY >= 0 && casaX < tabuleiro.ROWS && casaY < tabuleiro.COLUMNS) { // Se for uma casa válida;
+								Token tipoCasaSequencia = tabuleiro.getCasa(casaX, casaY).getTipoCasa();
+
+								if (tipoCasaSequencia == Token.BLANK || tipoCasaSequencia != tipoCasaAnalisada) {
+									naoGanhou = true;
+									break;
+								}
+							} else {
+								naoGanhou = true;
+								break;
+							}
+						}
+						if (!naoGanhou) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		return false;
+	}
 }
