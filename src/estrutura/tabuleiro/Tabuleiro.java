@@ -1,6 +1,6 @@
 package estrutura.tabuleiro;
 
-import utilidade.UtilidadeCombinacoes;
+import utilidade.CalculoUtilidade;
 
 public class Tabuleiro {
 	public int COLUMNS;
@@ -59,7 +59,7 @@ public class Tabuleiro {
 	}
 
 	public Long gerarUtilityPoint() {
-		int utilidade = UtilidadeCombinacoes.calculateUtilityCombinacoes(this);
+		long utilidade = CalculoUtilidade.calculateUtilityCombinacoes(this);
 		// System.out.println(utilidade);
 		return (long) utilidade;
 	}

@@ -1,6 +1,6 @@
 package view;
 
-import estrutura.Arvore;
+import estrutura.nodos.Arvore;
 import estrutura.tabuleiro.Tabuleiro;
 import estrutura.tabuleiro.Token;
 
@@ -12,7 +12,7 @@ public class Jogo {
 
 	public Jogo() {
 		this.tabuleiro = new Tabuleiro();
-		this.computer = new Arvore(5);
+		this.computer = new Arvore(8);
 		this.userView = new UserViewImpl(this);
 		this.userView.setVisible(true);
 	}

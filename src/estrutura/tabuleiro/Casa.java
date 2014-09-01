@@ -3,7 +3,7 @@ package estrutura.tabuleiro;
 public class Casa {
 
 	Token tipoCasa;
-	int utilidadeCasa;
+	long utilidadeCasa;
 
 	public Casa() {
 		this.tipoCasa = Token.BLANK;
@@ -15,11 +15,11 @@ public class Casa {
 		return this.tipoCasa.toString();
 	}
 
-	public void setUtilidade(int valor) {
+	public void setUtilidade(long valor) {
 		this.utilidadeCasa = valor;
 	}
 
-	public int getUtilidade() {
+	public long getUtilidade() {
 		return this.utilidadeCasa;
 	}
 

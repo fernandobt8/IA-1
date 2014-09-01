@@ -11,9 +11,10 @@ public class UtilityTest {
 		initBoardNaMao();
 		board.printBoard();
 		// System.out.println("Utilidade total com vizinhos:    " + UtilidadeVizinhos.calculateUtilityVizinhos(board));
-		System.out.println("Utilidade total com combinações: " + UtilidadeCombinacoes.calculateUtilityCombinacoes(board));
+		System.out.println("Utilidade total com combinações: " + CalculoUtilidade.calculateUtilityCombinacoes(board));
 	}
 
+	@SuppressWarnings("unused")
 	private static void initBoard() {
 		board = new Tabuleiro();
 

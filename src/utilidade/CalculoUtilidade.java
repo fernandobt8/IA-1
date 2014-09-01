@@ -3,20 +3,20 @@ package utilidade;
 import estrutura.tabuleiro.Tabuleiro;
 import estrutura.tabuleiro.Token;
 
-public class UtilidadeCombinacoes {
+public class CalculoUtilidade {
 
 	private static Tabuleiro tabuleiro;
 
-	public static int calculateUtilityCombinacoes(Tabuleiro tabuleiro) {
-		// System.out.println();
+	public static long calculateUtilityCombinacoes(Tabuleiro tabuleiro) {
+		// System.out.prlongln();
 
-		UtilidadeCombinacoes.tabuleiro = tabuleiro;
-		int utilidadeTabuleiro = 0;
+		CalculoUtilidade.tabuleiro = tabuleiro;
+		long utilidadeTabuleiro = 0;
 
 		for (int x = 0; x < tabuleiro.ROWS; x++) {
 			for (int y = 0; y < tabuleiro.COLUMNS; y++) {
 				Token tipoCasaCentral = tabuleiro.getCasa(x, y).getTipoCasa();
-				int utilidadeCasa = 0;
+				long utilidadeCasa = 0;
 
 				if (tipoCasaCentral != Token.BLANK) {
 					utilidadeCasa = calculateUtilidadeCasa(x, y, tipoCasaCentral);
@@ -24,21 +24,21 @@ public class UtilidadeCombinacoes {
 				}
 
 				tabuleiro.getCasa(x, y).setUtilidade(utilidadeCasa);
-				// System.out.print(utilidadeCasa + "\t");
+				// System.out.prlong(utilidadeCasa + "\t");
 			}
-			// System.out.println();
+			// System.out.prlongln();
 		}
 
 		return utilidadeTabuleiro;
 	}
 
-	private static int calculateUtilidadeCasa(int x, int y, Token tipoCasaCentral) {
-		int maxUtilidade = 0;
+	private static long calculateUtilidadeCasa(int x, int y, Token tipoCasaCentral) {
+		long maxUtilidade = 0;
 
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
 
-				int utilidade = 1;
+				long utilidade = 1;
 
 				if (i == 0 && j == 0) {
 					continue;
@@ -78,9 +78,9 @@ public class UtilidadeCombinacoes {
 		// return maxUtilidade;
 	}
 
-	private static int calcularUtilidade(int utilidade) {
-		int length = (int) Math.log10(utilidade);
-		return (int) Math.pow(10, length + 3);
+	private static long calcularUtilidade(long utilidade) {
+		long length = (long) Math.log10(utilidade);
+		return (long) Math.pow(10, length + 3);
 	}
 
 }

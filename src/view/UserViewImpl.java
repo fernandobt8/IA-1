@@ -84,6 +84,8 @@ public class UserViewImpl extends JFrame {
 	}
 
 	public class CellRenderer extends DefaultTableCellRenderer {
+		private static final long serialVersionUID = -2316443649170917750L;
+
 		JLabel lbl = new JLabel();
 
 		@Override

@@ -1,7 +1,5 @@
-package estrutura;
+package estrutura.nodos;
 
-import estrutura.nodos.Nodo;
-import estrutura.nodos.NodoMinimo;
 import estrutura.tabuleiro.Tabuleiro;
 
 public class Arvore {
