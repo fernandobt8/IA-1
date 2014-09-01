@@ -21,7 +21,7 @@ public abstract class Nodo {
 
 	public Long gerarUtilityPoint() {
 		Long gerarUtilityPoint = this.tabuleiro.gerarUtilityPoint();
-		// System.out.println(this.name + ": " + gerarUtilityPoint);
+		this.setUtilityPoint(gerarUtilityPoint);
 		return gerarUtilityPoint;
 	}
 
