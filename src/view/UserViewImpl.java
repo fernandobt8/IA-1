@@ -65,10 +65,26 @@ public class UserViewImpl extends JFrame {
 
 	public void showWin() {
 		JOptionPane.showMessageDialog(null, "Você ganhou!");
+		this.jogarNovamente();
 	}
 
 	public void showLoser() {
 		JOptionPane.showMessageDialog(null, "Você perdeu!");
+		this.jogarNovamente();
+	}
+
+	private void jogarNovamente() {
+		String[] options = new String[2];
+		options[0] = "Sim";
+		options[1] = "Não";
+		int choice = JOptionPane.showOptionDialog(null, "Jogar novamente?", "Fim de jogo", 1, 1, null, options, null);
+
+		if (choice == 0) {
+			this.dispose();
+			new GameSettings();
+		} else {
+			System.exit(0);
+		}
 	}
 
 	public class CellRenderer extends DefaultTableCellRenderer {

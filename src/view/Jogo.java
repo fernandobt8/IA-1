@@ -25,9 +25,11 @@ public class Jogo {
 			if (!this.tabuleiro.checkWinCondition()) {
 				this.tabuleiro = this.computer.getJogada(this.tabuleiro);
 				if (this.tabuleiro.checkWinCondition()) {
+					this.userView.updateTableModel(this.tabuleiro);
 					this.userView.showLoser();
 				}
 			} else {
+				this.userView.updateTableModel(this.tabuleiro);
 				this.userView.showWin();
 			}
 			this.userView.updateTableModel(this.tabuleiro);
