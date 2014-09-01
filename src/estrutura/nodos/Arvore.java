@@ -13,7 +13,7 @@ public class Arvore {
 	public Tabuleiro getJogada(Tabuleiro tabu) {
 		this.begin = new NodoMinimo(tabu);
 		this.begin.setUtilityPoint(this.percorrer(this.begin, 0));
-		this.begin.printChilds();
+		// this.begin.printChilds();
 		return this.begin.getJogada();
 	}
 

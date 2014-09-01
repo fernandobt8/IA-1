@@ -5,13 +5,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import estrutura.tabuleiro.Tabuleiro;
@@ -22,10 +20,10 @@ public class UserViewImpl extends JFrame {
 	private JTable table;
 	private TableModel tableModel;
 	private Jogo jogo;
-	private JTextField textField;
 
 	public UserViewImpl(Jogo jogo) {
 		this.jogo = jogo;
+		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(100, 100, 600, 600);
 
@@ -55,16 +53,6 @@ public class UserViewImpl extends JFrame {
 		this.table.setPreferredScrollableViewportSize(this.table.getPreferredSize());
 
 		panel.add(this.table);
-		JButton reset = new JButton("Reset");
-		panel.add(reset);
-		JButton menos = new JButton("menos");
-		panel.add(menos);
-
-		this.textField = new JTextField();
-		panel.add(this.textField);
-		this.textField.setColumns(10);
-		JButton mais = new JButton("mais");
-		panel.add(mais);
 	}
 
 	public void slotOnMouseClick(int row, int col) {

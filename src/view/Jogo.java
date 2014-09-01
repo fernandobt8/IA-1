@@ -10,10 +10,12 @@ public class Jogo {
 	private Arvore computer;
 	private UserViewImpl userView;
 
-	public Jogo() {
+	public Jogo(int dificuldade) {
 		this.tabuleiro = new Tabuleiro();
-		this.computer = new Arvore(8);
+		this.computer = new Arvore(dificuldade);
 		this.userView = new UserViewImpl(this);
+		this.userView.pack();
+		this.userView.setLocationRelativeTo(null);
 		this.userView.setVisible(true);
 	}
 

@@ -1,10 +1,10 @@
 package utilidade;
 
-import view.Jogo;
+import view.GameSettings;
 
 public class GameStart {
 
 	public static void main(String[] args) {
-		new Jogo();
+		new GameSettings();
 	}
 }

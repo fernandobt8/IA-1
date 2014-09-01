@@ -21,8 +21,7 @@ public abstract class Nodo {
 
 	public Long gerarUtilityPoint() {
 		Long gerarUtilityPoint = this.tabuleiro.gerarUtilityPoint();
-		System.out.println(this.name + ": " + gerarUtilityPoint);
-		// this.setUtilityPoint(gerarUtilityPoint);
+		// System.out.println(this.name + ": " + gerarUtilityPoint);
 		return gerarUtilityPoint;
 	}
 
@@ -49,7 +48,7 @@ public abstract class Nodo {
 	public Tabuleiro getJogada() {
 		for (Nodo nodo : this.childs) {
 			if (nodo.getUtilityPoint().equals(this.getUtilityPoint())) {
-				System.out.println(nodo.getUtilityPoint());
+				// System.out.println(nodo.getUtilityPoint());
 				return nodo.tabuleiro;
 			}
 		}
