@@ -18,7 +18,7 @@ public class Arvore {
 	}
 
 	private Long percorrer(Nodo current, int profundidade) {
-		if (this.profundidade <= profundidade) {
+		if (this.profundidade <= profundidade || current.checkWinCondition()) {
 			return current.gerarUtilityPoint();
 		} else {
 			int profun = ++profundidade;

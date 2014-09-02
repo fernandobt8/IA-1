@@ -25,6 +25,10 @@ public abstract class Nodo {
 		return gerarUtilityPoint;
 	}
 
+	public boolean checkWinCondition() {
+		return this.tabuleiro.checkWinCondition();
+	}
+
 	public Nodo(Tabuleiro tabu) {
 		this.name = "1";
 		this.tabuleiro = tabu.clone();
