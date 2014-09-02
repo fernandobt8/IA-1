@@ -82,7 +82,7 @@ public class CalculoUtilidade {
 		long length = (long) Math.log10(utilidade);
 
 		if (length > 6) {
-			return Long.MAX_VALUE;
+			return (long) Math.pow(10, length + 9);
 		}
 		return (long) Math.pow(10, length + 3);
 	}
