@@ -103,18 +103,18 @@ public class GameSettings {
 
 		JLabel lblQuemJogaPrimeiro = new JLabel("Quem joga primeiro?");
 		lblQuemJogaPrimeiro.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblQuemJogaPrimeiro.setBounds(116, 189, 113, 15);
+		lblQuemJogaPrimeiro.setBounds(116, 189, 130, 15);
 		this.settingsFrame.getContentPane().add(lblQuemJogaPrimeiro);
 
 		this.humanoRadio = new JRadioButton("Humano");
 		this.humanoRadio.setSelected(true);
 		this.humanoRadio.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		this.humanoRadio.setBounds(82, 211, 65, 23);
+		this.humanoRadio.setBounds(82, 211, 75, 23);
 		this.settingsFrame.getContentPane().add(this.humanoRadio);
 
 		this.computadorRadio = new JRadioButton("Computador");
 		this.computadorRadio.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		this.computadorRadio.setBounds(159, 211, 85, 23);
+		this.computadorRadio.setBounds(159, 211, 95, 23);
 		this.settingsFrame.getContentPane().add(this.computadorRadio);
 
 		ButtonGroup groupPrimeiroJogador = new ButtonGroup();

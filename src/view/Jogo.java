@@ -24,20 +24,19 @@ public class Jogo {
 		}
 	}
 
-	public void jogar(int row, int col) {
+	public void jogar(int col) {
 		if (this.tabuleiro.hasColunaDisponivel(col)) {
 			this.tabuleiro.jogar(col, Token.BLUE);
+			Jogo.this.userView.updateTableModel(Jogo.this.tabuleiro);
 			if (!this.tabuleiro.checkWinCondition()) {
 				this.tabuleiro = this.computer.getJogada(this.tabuleiro);
+				this.userView.updateTableModel(this.tabuleiro);
 				if (this.tabuleiro.checkWinCondition()) {
-					this.userView.updateTableModel(this.tabuleiro);
 					this.userView.showLoser();
 				}
 			} else {
-				this.userView.updateTableModel(this.tabuleiro);
 				this.userView.showWin();
 			}
-			this.userView.updateTableModel(this.tabuleiro);
 		}
 	}
 }

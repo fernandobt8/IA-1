@@ -42,9 +42,8 @@ public class UserViewImpl extends JFrame {
 		this.table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int row = UserViewImpl.this.table.rowAtPoint(e.getPoint());
-				int col = UserViewImpl.this.table.columnAtPoint(e.getPoint());
-				UserViewImpl.this.slotOnMouseClick(row, col);
+				final int col = UserViewImpl.this.table.columnAtPoint(e.getPoint());
+				UserViewImpl.this.slotOnMouseClick(col);
 			}
 		});
 
@@ -55,12 +54,13 @@ public class UserViewImpl extends JFrame {
 		panel.add(this.table);
 	}
 
-	public void slotOnMouseClick(int row, int col) {
-		this.jogo.jogar(row, col);
+	public void slotOnMouseClick(int col) {
+		this.jogo.jogar(col);
 	}
 
 	public void updateTableModel(Tabuleiro tabuleiro) {
 		this.tableModel.setTabuleiro(tabuleiro);
+		this.table.repaint();
 	}
 
 	public void showWin() {
