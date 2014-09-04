@@ -5,15 +5,17 @@ import estrutura.tabuleiro.Tabuleiro;
 public class Arvore {
 	private int profundidade;
 	private NodoMinimo begin;
+	private Long passos;
 
 	public Arvore(int profundidade) {
 		this.profundidade = profundidade;
 	}
 
 	public Tabuleiro getJogada(Tabuleiro tabu) {
+		this.passos = 0L;
 		this.begin = new NodoMinimo(tabu);
 		this.begin.setUtilityPoint(this.percorrer(this.begin, 0));
-		// this.begin.printChilds();
+		System.out.println("Número de passos executados: " + this.passos);
 		return this.begin.getJogada();
 	}
 
@@ -27,6 +29,7 @@ public class Arvore {
 					return current.getUtilityPoint();
 				}
 				current.setUtilityPoint(this.percorrer(current.createChild(), profun));
+				this.passos++;
 			}
 			return current.getUtilityPoint();
 		}
