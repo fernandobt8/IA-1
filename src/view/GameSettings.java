@@ -19,6 +19,8 @@ public class GameSettings {
 	private JRadioButton dif2Radio;
 	private JRadioButton dif4Radio;
 	private JRadioButton dif7Radio;
+	private JRadioButton humanoRadio;
+	private JRadioButton computadorRadio;
 
 	public GameSettings() {
 		this.initializeUI();
@@ -28,7 +30,7 @@ public class GameSettings {
 
 	private void initializeUI() {
 		this.settingsFrame = new JFrame("Connect4");
-		this.settingsFrame.setBounds(new Rectangle(0, 0, 340, 290));
+		this.settingsFrame.setBounds(new Rectangle(0, 0, 345, 350));
 		this.settingsFrame.setResizable(false);
 		this.settingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.settingsFrame.getContentPane().setLayout(null);
@@ -68,17 +70,18 @@ public class GameSettings {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int dificuldade = GameSettings.this.getDificuldade();
+				int primeiroJogador = GameSettings.this.getPrimeiroJogador();
 
 				if (dificuldade == 0) {
 					JOptionPane.showMessageDialog(null, "Não seja covarde. Escolha uma dificuldade ¬¬");
 				} else {
 					GameSettings.this.settingsFrame.dispose();
-					new Jogo(dificuldade);
+					new Jogo(dificuldade, primeiroJogador);
 				}
 			}
 		});
 		iniciarButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		iniciarButton.setBounds(10, 190, 315, 25);
+		iniciarButton.setBounds(10, 253, 315, 25);
 		this.settingsFrame.getContentPane().add(iniciarButton);
 
 		JButton fugirButton = new JButton("Fugir :(");
@@ -89,14 +92,34 @@ public class GameSettings {
 			}
 		});
 		fugirButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		fugirButton.setBounds(10, 224, 315, 25);
+		fugirButton.setBounds(10, 287, 315, 25);
 		this.settingsFrame.getContentPane().add(fugirButton);
 
-		ButtonGroup group = new ButtonGroup();
-		group.add(this.dif1Radio);
-		group.add(this.dif2Radio);
-		group.add(this.dif4Radio);
-		group.add(this.dif7Radio);
+		ButtonGroup groupDificuldade = new ButtonGroup();
+		groupDificuldade.add(this.dif1Radio);
+		groupDificuldade.add(this.dif2Radio);
+		groupDificuldade.add(this.dif4Radio);
+		groupDificuldade.add(this.dif7Radio);
+
+		JLabel lblQuemJogaPrimeiro = new JLabel("Quem joga primeiro?");
+		lblQuemJogaPrimeiro.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblQuemJogaPrimeiro.setBounds(116, 189, 113, 15);
+		this.settingsFrame.getContentPane().add(lblQuemJogaPrimeiro);
+
+		this.humanoRadio = new JRadioButton("Humano");
+		this.humanoRadio.setSelected(true);
+		this.humanoRadio.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		this.humanoRadio.setBounds(82, 211, 65, 23);
+		this.settingsFrame.getContentPane().add(this.humanoRadio);
+
+		this.computadorRadio = new JRadioButton("Computador");
+		this.computadorRadio.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		this.computadorRadio.setBounds(159, 211, 85, 23);
+		this.settingsFrame.getContentPane().add(this.computadorRadio);
+
+		ButtonGroup groupPrimeiroJogador = new ButtonGroup();
+		groupPrimeiroJogador.add(this.humanoRadio);
+		groupPrimeiroJogador.add(this.computadorRadio);
 	}
 
 	protected int getDificuldade() {
@@ -113,5 +136,12 @@ public class GameSettings {
 			return 7;
 		}
 		return 0;
+	}
+
+	protected int getPrimeiroJogador() {
+		if (this.humanoRadio.isSelected()) {
+			return 0;
+		}
+		return 1;
 	}
 }
